@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+:root {
+    color-scheme: light;
+    --ink: #1d2421;
+    --muted: #64716b;
+    --line: #e7ebe8;
+    --accent: #d7a900;
+    --accent-dark: #9d7b00;
+    --paper: #ffffff;
+    --canvas: #f5f7f4;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--canvas);
+}
+
+body.agreement-page {
+    min-height: 100vh;
+    margin: 0;
+    padding: clamp(16px, 4vw, 48px);
+    color: var(--ink);
+    background:
+        radial-gradient(ellipse at 10% 0%, rgba(254, 211, 48, .16), transparent 38rem),
+        var(--canvas);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.agreement-shell {
+    width: min(100%, 900px);
+    margin: 0 auto;
+    padding: clamp(22px, 5vw, 52px) clamp(20px, 7vw, 76px) 28px;
+    background: var(--paper);
+    border: 1px solid rgba(29, 36, 33, .06);
+    border-radius: 24px;
+    box-shadow: 0 24px 70px rgba(29, 36, 33, .09);
+}
+
+.agreement-header,
+.agreement-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.agreement-header {
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+    font: 800 1.15rem 'Manrope', sans-serif;
+    text-decoration: none;
+}
+
+.brand img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.brand i {
+    color: var(--accent-dark);
+}
+
+.document-label,
+.eyebrow {
+    color: var(--accent-dark);
+    font-size: .73rem;
+    font-weight: 700;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.agreement-content {
+    padding: clamp(28px, 5vw, 48px) 0 36px;
+}
+
+.eyebrow {
+    margin: 0 0 10px;
+}
+
+.agreement-content h1 {
+    margin: 0;
+    font: 800 clamp(2rem, 5vw, 3rem)/1.12 'Manrope', sans-serif;
+    letter-spacing: -.045em;
+}
+
+.agreement-intro {
+    max-width: 650px;
+    margin: 16px 0 30px;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.terms-list {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: terms;
+}
+
+.terms-list li {
+    position: relative;
+    padding: 20px 0 20px 58px;
+    border-top: 1px solid var(--line);
+    counter-increment: terms;
+}
+
+.terms-list li::before {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 50%;
+    background: #fff7d6;
+    color: #806400;
+    content: counter(terms, decimal-leading-zero);
+    font: 700 .8rem 'Manrope', sans-serif;
+}
+
+.terms-list h2 {
+    margin: 0 0 6px;
+    font: 700 1rem 'Manrope', sans-serif;
+}
+
+.terms-list p {
+    margin: 0;
+    color: var(--muted);
+    font-size: .94rem;
+    line-height: 1.7;
+}
+
+.agreement-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 26px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+}
+
+.agreement-check {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 11px;
+    color: #37433d;
+    font-size: .93rem;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.agreement-check input {
+    width: 19px;
+    height: 19px;
+    flex: 0 0 auto;
+    margin: 1px 0 0;
+    accent-color: var(--accent-dark);
+}
+
+.agreement-form button {
+    display: inline-flex;
+    min-height: 48px;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 10px;
+    background: #1d2421;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.agreement-form button:hover {
+    transform: translateY(-1px);
+    background: #37433d;
+}
+
+.agreement-form button:focus-visible,
+.agreement-check input:focus-visible,
+.agreement-footer a:focus-visible,
+.brand:focus-visible {
+    outline: 3px solid rgba(215, 169, 0, .55);
+    outline-offset: 3px;
+}
+
+.agreement-footer {
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: .84rem;
+}
+
+.agreement-footer a {
+    color: var(--ink);
+    font-weight: 700;
+    text-underline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    body.agreement-page {
+        padding: 12px 16px;
+    }
+
+    .agreement-shell {
+        padding: 22px 18px;
+        border-radius: 17px;
+    }
+
+    .document-label {
+        font-size: .62rem;
+        letter-spacing: .08em;
+    }
+
+    .agreement-form,
+    .agreement-footer {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .agreement-form button {
+        width: 100%;
+    }
+
+    .terms-list li {
+        padding-left: 48px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .agreement-form button {
+        transition: none;
+    }
+}

@@ -1,0 +1,537 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #fed330;      /* FoodieCart Green */
+    --secondary-color: #ff2525;    /* FoodieCart Orange */
+
+    --white-color: #FFFFFF;
+    --light-color: #F7FAF8;
+    --gray-color: #6B7280;
+    --dark-color: #171820;
+
+    --light-green: #EAF7EF;
+    --light-orange: #FFF0E0;
+
+    --trans-back-co: background-color .3s, color .3s;
+    --trans-co: color 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+*,::before,::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--white-color);
+    background-color: var(--white-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+ul {list-style: none;}
+strong{font-weight: 600;}
+h1,h2,h3,h4 {font-weight: 500; line-height: normal;}
+
+h1 {font-size: 2.5em;}
+
+h2 {font-size: 2em;}
+
+h3 {font-size: 1.5em;}
+
+h4 {font-size: 1em;}
+
+.container{
+    max-width: 1100px;
+    padding: 0 2em;
+    margin: 0 auto;
+}
+
+
+/*--------------------
+ * 00. REUSABLE SELECTOR
+ *-------------------*/
+.icons a {
+    position: relative;
+    font-size: 1.375em;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    text-align: center;
+}
+
+/* --------------------
+ * 01. Header
+ * --------------------*/
+
+header {
+    position: relative;
+}
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1000px;
+    background-color: var(--dark-color);
+    z-index: -1;
+}
+header :where(nav, .left, .right, ul, .icons) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header :where(.left, ul) {
+    flex-direction: column;
+}
+header nav {
+    padding: 1.5em 0;
+    line-height: 2.5em;
+}
+header nav a{
+    padding: 0 1em;
+    color: var(--white-color);
+    transition: var(--trans-co);
+}
+header nav a:hover {
+    color: var(--primary-color);
+}
+header nav .logo a {
+    font-size: 1.5em;
+    font-weight: 500;
+    padding-left: 0;
+    display: flex;
+    color: var(--primary-color);
+}
+header nav .icart .number {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    width: 16px;
+    height: 16px;
+    color: var(--primary-color);
+    background-color: #fed33040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+    /* 01. HEADER ------------------------------------
+    * a RESPONSIVE MENU
+    *----------------*/
+
+header nav .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 320px;
+    width: 80%;
+    padding: 2em;
+    background-color: var(--primary-color);
+    z-index: 1000;
+
+    border-radius: 0 50% 50% 0;
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform .5s, visibility .2s, border-radius .5s .4s;
+}
+.menu.show {
+    transform: translateX(0);
+    visibility: inherit;
+    border-radius: 0;
+}
+body.menu-visible {
+    overflow: hidden;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+}
+.menu-visible .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+header nav .menu ul {
+    align-items: flex-start;
+    line-height: 3em;
+}
+header nav .menu ul li a {
+    font-size: 1.5em;
+    color: var(--dark-color);
+}
+header nav .menu ul li a:hover {
+    color: var(--white-color);
+}
+    /* 01. HEADER---------------------------
+    *  b. Search
+    *-------------------*/
+header .search {
+    background-color: var(--white-color);
+    height: 0;
+    visibility: hidden;
+    transition: height .3s, visibility .3s;
+}
+.showsearch .search {
+    height: 60px;
+    visibility: inherit;
+}
+header .search input{
+    width: 100%;
+    line-height: 60px;
+    outline: 0;
+    border: 0;
+    font-family: inherit;
+    font-size: 1.5em;
+    font-weight: 300;
+    text-align: right;
+    background-color: transparent;
+}
+header .search input::placeholder {
+    color: var(--dark-color);
+}
+header .s-trigger i.ri-close-line,
+.showsearch header .s-trigger .ri-search-line  {
+    display: none;
+}
+.showsearch header .s-trigger i.ri-close-line {
+    display: block;
+}
+.showsearch header .s-trigger{
+    background-color: #ff25251a;
+    color: var(--secondary-color);
+    border-radius: 7px;
+    transition: var(--trans-back-co);
+}
+.showsearch header .s-trigger:hover {
+    background-color: #ff25254a;
+}
+/*--------------------
+ *  SECTION
+ *-------------------*/
+/* Location Section Styling */
+.location-section {
+    background-color: #141417;
+    color: #ffffff;
+    padding: 60px 20px 100px 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.location-header {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+.find-us-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.line-decor {
+    width: 60px;
+    height: 2px;
+    background-color: #ffc107;
+}
+
+.find-us-badge {
+    color: #ffc107;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+.location-header h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.location-header h2 .highlight {
+    color: #ffc107;
+}
+
+.location-header p {
+    color: #b0b0b5;
+    font-size: 1.1rem;
+}
+
+/* Map Wrapper & Floating Card Layout */
+.map-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.map-wrapper iframe {
+    display: block;
+    width: 100%;
+    height: 600px;
+    border: none;
+}
+
+/* Floating Dark Sidebar Card */
+.map-info-card {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 360px;
+    background-color: #141417;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: left;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+.card-top-info {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.loc-icon-box {
+    background-color: #ffc107;
+    color: #141417;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.loc-text h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.loc-text p {
+    font-size: 0.85rem;
+    color: #b0b0b5;
+    line-height: 1.4;
+}
+
+.rating-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rating-badge .stars {
+    color: #ffc107;
+}
+
+.rating-badge .reviews {
+    color: #b0b0b5;
+}
+
+.rating-badge .info-icon {
+    color: #b0b0b5;
+    margin-left: auto;
+    font-size: 0.8rem;
+}
+
+/* Buttons inside the card */
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-yellow {
+    background-color: #ffc107;
+    color: #141417;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.btn-yellow:hover {
+    background-color: #ffca28;
+}
+
+.btn-dark-outline {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.btn-dark-outline:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: #ffc107;
+}
+
+/* Opening hours section */
+.card-hours {
+    font-size: 0.85rem;
+    color: #b0b0b5;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+
+.card-hours .hours-title {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.card-hours p {
+    margin-bottom: 3px;
+}
+/*-----------------------
+ * FOOTER
+ *----------------------*/
+footer {
+    padding: 5em 0;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+}
+footer h4 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+footer .logo a {
+    font-size: 1.5em;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+footer p {
+    color: var(--gray-color);
+    margin-bottom: 1em;
+}
+footer ul li a {
+    transition: var(--trans-co);
+}
+footer ul:not(.socials) li a:hover {
+    color: var(--gray-color);
+}
+footer .socials {
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+}
+footer .socials li a {
+    font-size: 1.25em;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+footer .socials li:nth-child(1) a {
+    color: #4267b2;
+    background-color: #4267b21a;
+}
+footer .socials li:nth-child(2) a {
+    color: var(--white-color);
+    background-color: green;
+}
+footer .socials li:nth-child(3) a {
+    color: #e1306c;
+    background-color: #e1306c1a;
+}
+footer .socials li:nth-child(4) a {
+    color: #FFFFFF;
+    background-color: #010101;
+}
+footer .copyright {
+    margin-top: 5em;
+    text-align: center;
+}
+.wrapper {
+    display: grid;
+    grid-gap: 3em;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+}
+
+
+@media screen and (min-width: 768px) {
+    .mobile-only {
+        display: none;
+    }
+    header :where(.left, ul) {
+        flex-direction: row;
+    }
+    header nav .logo a {
+        margin-right: 2em;
+    }
+    header nav .menu{
+        position: relative;
+        padding: 0;
+        max-width: max-content;
+        background-color: transparent;
+        visibility: inherit;
+        transform: none;
+    }
+    header nav .menu ul li a {
+        font-size: inherit;
+        color: var(--white-color);
+    }
+    header nav .menu ul li a:hover {
+        color: var(--primary-color);
+    }
+}

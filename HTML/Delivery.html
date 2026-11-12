@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Confirm your delivery details and payment method with FoodieCart.">
+    <title>Checkout | FoodieCart</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/images/Codex Image 3 Sept 2026, 11_52_56.png">
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../CSS/Delivery.css">
+    <link rel="stylesheet" href="../CSS/responsive.css">
+    <link rel="stylesheet" href="../CSS/page-redesign.css">
+</head>
+<body class="site delivery-page">
+    <header>
+            <div class="container">
+                <nav>
+                    <div class="left">
+                        <div class="logo"><a href="index.html"><i class="ri-leaf-fill"></i>Foodiecart</a></div>
+                        <div class="menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="Menu.html">Menu</a></li>
+                                <li><a href="Delivery.html">Delivery</a></li>
+                                <li><a href="Location.html">Location</a></li>
+                                <li><a href="About.html">About</a></li>
+                                <li><a href="Contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="icons">
+                            <a href="#" class="s-trigger">
+                                <i class="ri-search-line"></i>
+                                <i class="ri-close-line"></i>
+                            </a>
+                            <a href="#" class="icart">
+                                <i class="ri-shopping-cart-line"></i>
+                                <span class="number">0</span>
+                            </a>
+                            <a href="#" class="m-trigger mobile-only">
+                                <i class="ri-menu-line"></i> 
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <form action="" class="search">
+                <div class="container">
+                    <input type="search" placeholder="Search for food, drinks, etc...">
+                </div>
+            </form>
+    </header>
+    <section class="delivery-section" id="delivery">
+            <div class="container">
+                <div class="delivery-intro">
+                    <span class="delivery-kicker"><i class="ri-flashlight-line" aria-hidden="true"></i> QUICK, EASY CHECKOUT</span>
+                    <h1 class="delivery-title">Let’s get your order <span>on its way.</span></h1>
+                    <p>Confirm where to deliver and how you’d like to pay. Your order summary is ready on the right.</p>
+                </div>
+
+                <div class="delivery-grid">
+                <!-- Left Column: Form Controls -->
+                <div class="delivery-form-container">
+                    
+                    <!-- 1. Delivery Type -->
+                    <div class="form-step">
+                    <h3 class="step-heading">1. Delivery Type</h3>
+                    <div class="toggle-group">
+                        <button type="button" class="toggle-btn active">
+                        <span class="icon">🛵</span> Door Delivery
+                        </button>
+                        <button type="button" class="toggle-btn">
+                        <span class="icon">🛍️</span> Self Pickup
+                        </button>
+                    </div>
+                    </div>
+
+                    <!-- 2. Address & Contact -->
+                    <div class="form-step">
+                    <h3 class="step-heading">2. Address & Contact</h3>
+                    <form id="checkoutForm">
+                        <div class="input-field">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" value="Uzor Victor" required />
+                        </div>
+
+                        <div class="input-field">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="tel" id="phoneNumber" value="+234 800 000 0000" required />
+                        </div>
+
+                        <div class="input-field">
+                        <label for="deliveryAddress">Delivery Address</label>
+                        <input type="text" id="deliveryAddress" value="Apt 4B, Central Avenue, Port Harcourt" required />
+                        </div>
+
+                        <div class="input-field">
+                        <label for="deliveryNotes">Delivery Notes (Optional)</label>
+                        <input type="text" id="deliveryNotes" value="Call upon arrival" />
+                        </div>
+                    </form>
+                    </div>
+
+                    <!-- 3. Payment Method -->
+                    <div class="form-step">
+                    <h3 class="step-heading">3. Payment Method</h3>
+                    <div class="payment-options">
+                        <label class="payment-card active">
+                        <input type="radio" name="payment" value="card" checked />
+                        <span class="custom-radio"></span>
+                        <span class="icon">💳</span> Card/Transfer
+                        </label>
+                        <label class="payment-card">
+                        <input type="radio" name="payment" value="cod" />
+                        <span class="custom-radio"></span>
+                        <span class="icon">💵</span> Cash on Delivery
+                        </label>
+                    </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Order Summary Card -->
+                <div class="order-summary-card">
+                    <h3 class="summary-title">ORDER SUMMARY</h3>
+
+                    <div class="summary-items">
+                    <div class="summary-item">
+                        <img src="../assets/slider/food3.png" alt="Breakfast Toast" class="item-img" />
+                        <div class="item-details">
+                        <span class="item-name"><strong class="qty">1x</strong> Breakfast Toast & Egg</span>
+                        </div>
+                        <span class="item-price">$12.99</span>
+                    </div>
+                    </div>
+
+                    <div class="summary-breakdown">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>$12.99</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery Fee</span>
+                        <span>$2.00</span>
+                    </div>
+                    <p class="sub-text">(dynamic based on address)</p>
+                    <div class="summary-row">
+                        <span>Tax (5%)</span>
+                        <span>$0.65</span>
+                    </div>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span class="total-price">$15.64</span>
+                    </div>
+
+                    <div class="time-box">
+                    <small>Estimated Delivery Time</small>
+                    <div class="time-value">
+                        <span class="clock-icon">🕒</span> 25-35 Mins
+                    </div>
+                    </div>
+
+                    <button type="submit" form="checkoutForm" class="btn-confirm">
+                    CONFIRM & PLACE ORDER
+                    </button>
+                </div>
+
+                </div>
+            </div>
+    </section>
+    
+    <footer>
+            <div class="container">
+                <div class="wrapper">
+                    <div class="widget-footer">
+                        <h4>Resto</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Feature</a></li>
+                            <li><a href="#">Our Menu</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="widget-footer">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#">Support Center</a></li>
+                            <li><a href="#">Feedback</a></li>
+                            <li><a href="#">Q n A</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="widget-footer">
+                        <div class="logo"><a href="index.html"><i class="ri-leaf-fill"></i>FoodieCart</a></div>
+                        <p>Your ultimate mobile marketplace for sourcing premium, chef-selected ingredients and gourmet street food delivered straight to your neighborhood.</p>
+                        <p>74 Infant Jesus Rd <br> Uzor victor - Aptech ID(1740504)</p>
+                        <ul class="socials">
+                            <li><a href="https://www.facebook.com/share/1Bx9fHu9DB/"><i class="ri-facebook-line"></i></a></li>
+                            <li><a href="https://wa.me/2349030527398"><i class="ri-whatsapp-line"></i></a></li>
+                            <li><a href="#"><i class="ri-instagram-line"></i></a></li>
+                            <li><a href="https://vm.tiktok.com/ZS9UN2vysTPSK-fitez/"><i class="ri-tiktok-line"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="copyright">© 2026 .FoodieCart All rights reserved.</p>
+            </div>
+    </footer>
+    <script src="../JAVASCRIPT/Delivery.js"></script>
+    <script src="../JAVASCRIPT/site-enhancements.js"></script>
+</body>
+</html>
